@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casmart - Maior centro de compras</title>
+  <title>M&J - Maior centro de compras</title>
 
   <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="./assets/images/LOGO1.png" type="image/svg+xml">
 
   <!-- 
     - custom css link
@@ -45,7 +45,7 @@
       </div>
 
       <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" alt="Logo Casmart" width="130" height="31">
+        <img src="./assets/images/LOGO1.png" alt="Logo Casmart" width="130" height="31">
       </a>
 
       <div class="header-actions">
@@ -61,14 +61,31 @@
 
           <p class="header-action-label">Buscar</p>
         </button>
-
-        <button class="header-action-btn">
+           <!-- Botão do Carrinho -->
+        <button class="header-action-btn" id="open-cart">
           <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
-
-          <p class="header-action-label">Carrinho</p>
-
-          <div class="btn-badge green" aria-hidden="true">3</div>
+         <p class="header-action-label">Carrinho</p>
+        <div class="btn-badge green" id="cart-badge" aria-hidden="true">0</div>
         </button>
+
+           <!-- Carrinho Lateral -->
+        <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+         <button id="close-cart" class="close-cart" aria-label="Fechar Carrinho">&times;</button>
+          <h2>Sacola</h2>
+       </div>
+       <div class="cart-content">
+         <p id="empty-cart-message">Sua sacola está vazia. Adicione itens em sua sacola.</p>
+         <ul id="cart-items-list"></ul>
+       </div>
+       <div class="cart-footer">
+       <p>Total: <span id="cart-total">R$0,00</span></p>
+       <button class="btn btn-primary" id="checkout-btn">Finalizar Compra</button>
+     </div>
+   </div>
+
+
+        
 
         <button class="header-action-btn">
           <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
@@ -114,9 +131,7 @@
             <a href="#" class="navbar-link">Sobre</a>
           </li>
 
-          <li>
-            <a href="#blog" class="navbar-link">Blog</a>
-          </li>
+          
 
           <li>
             <a href="#" class="navbar-link">Contato</a>
@@ -136,6 +151,9 @@
         - #HERO
       -->
 
+      <div id="notification-container"></div>
+
+
       <section class="hero" id="home" style="background-image: url('./assets/images/hero-banner.jpg')">
         <div class="container">
 
@@ -151,6 +169,10 @@
 
         </div>
       </section>
+
+   
+      
+      
 
       <!-- 
         - #SERVICE
@@ -748,135 +770,7 @@
         </div>
       </section>
 
-      <!-- 
-        - #BLOG
-      -->
-
-      <section class="section blog">
-        <div class="container">
-
-          <h2 class="h2 section-title">Últimas notícias de moda</h2>
-
-          <ul class="blog-list">
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="./assets/images/blog-1.jpg" alt="Moda de Cyber Monday da Casmart" loading="lazy" width="1020" height="700" class="w-100">
-                  </a>
-                </figure>
-
-                <div class="card-content">
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="folder-open-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">Moda</a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="time-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">
-                        <time datetime="2021-03-31">31 Mar 2021</time>
-                      </a>
-                    </li>
-
-                  </ul>
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Moda de Cyber Monday da Casmart</a>
-                  </h3>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="./assets/images/blog-2.jpg" alt="Decoração de Casa para o Feriado que Pedi Recentemente" loading="lazy" width="1020" height="700" class="w-100">
-                  </a>
-                </figure>
-
-                <div class="card-content">
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="folder-open-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">Moda</a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="time-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">
-                        <time datetime="2021-03-31">31 Mar 2021</time>
-                      </a>
-                    </li>
-
-                  </ul>
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Decoração de Casa para o Feriado que Pedi Recentemente</a>
-                  </h3>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="./assets/images/blog-3.jpg" alt="Ideias Únicas para Moda que Você Ainda Não Ouviu" loading="lazy" width="1020" height="700" class="w-100">
-                  </a>
-                </figure>
-
-                <div class="card-content">
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="folder-open-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">Moda</a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="time-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">
-                        <time datetime="2021-03-31">31 Mar 2021</time>
-                      </a>
-                    </li>
-
-                  </ul>
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Ideias Únicas para Moda que Você Ainda Não Ouviu</a>
-                  </h3>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
+    
 
       <!-- 
         - #NEWSLETTER
@@ -887,7 +781,7 @@
 
           <div class="newsletter-card" style="background-image: url('./assets/images/newsletter-bg.png')">
 
-            <h2 class="card-title">Assine a Newsletter</h2>
+            <h2 class="card-title">Receba as últimas notícias</h2>
 
             <p class="card-text">
               Insira seu email abaixo para ser o primeiro a saber sobre novas coleções e lançamentos de produtos.
@@ -929,11 +823,11 @@
         <div class="footer-brand">
 
           <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" alt="Logo Casmart">
+            <img src="./assets/images/LOGO1.png" alt="Logo Casmart">
           </a>
 
           <p class="footer-text">
-            Casmart é um tema de moda que apresenta um guarda-roupa completo de peças Étnicas unicamente elaboradas, Casuais, Jeans Modernos, & Acessórios inspirados nas tendências mais contemporâneas.
+            M&J é um tema de moda que apresenta um guarda-roupa completo de peças Étnicas unicamente elaboradas, Casuais, Jeans Modernos, & Acessórios inspirados nas tendências mais contemporâneas.
           </p>
 
           <ul class="social-list">
